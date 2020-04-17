@@ -9,3 +9,4 @@ test/*.js
 cam_tests
 experiments
 docs
+.nyc_output

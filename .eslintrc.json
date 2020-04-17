@@ -59,8 +59,9 @@
       }
     ],
     "linebreak-style": [
-      2,
-      "unix"
+      0,
+      "error",
+      "windows"
     ],
     "indent": [
       2,

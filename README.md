@@ -1,3 +1,7 @@
+# DDYUNTONG
+
+`npm --registry=https://registry.npm.taobao.org install`
+
 # ONVIF
 
 [![Build Status](https://travis-ci.org/agsh/onvif.png)](https://travis-ci.org/agsh/onvif)
