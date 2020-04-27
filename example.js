@@ -2,9 +2,9 @@
  * Created by Andrew D.Laptev<a.d.laptev@gmail.com> on 1/21/15.
  */
 
-var CAMERA_HOST = '192.168.68.111',
+var CAMERA_HOST = '192.168.0.199',
 	USERNAME = 'admin',
-	PASSWORD = '9999',
+	PASSWORD = '',
 	PORT = 80;
 
 var http = require('http'),
@@ -29,11 +29,19 @@ new Cam({
 	});
 	this.getStreamUri({protocol: 'RTSP'}, function(err, stream) {
 		http.createServer(function(req, res) {
+			console.log(stream.uri);
 			res.writeHead(200, {'Content-Type': 'text/html'});
-			res.end(
-				'<html><body>' +
-				'<embed type="application/x-vlc-plugin" target="' + stream.uri + '"></embed>' +
-				'</boby></html>');
+			res.end('<!DOCTYPE html>' +
+			'<html>' +
+			'	<head>' +
+			'		<meta charset="utf-8">' +
+			'		<title></title>' +
+			'	</head>' +
+			'	<body>' +
+			'		<video src="http://localhost:8111/live" style="width: 960; height: 640;">' +
+			'		</video>' +
+			'	</body>' +
+			'</html>');
 		}).listen(3030);
 	});
 });

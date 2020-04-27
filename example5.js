@@ -1,3 +1,4 @@
+/* eslint-disable node/no-missing-require */
 /**
  * Created by Andrew D.Laptev<a.d.laptev@gmail.com> on 1/21/15.
  * Edited by Lucas Zanella <me@lucaszanella.com> on 27/08/17.
@@ -13,7 +14,7 @@ var CAMERA_HOST = '192.168.1.164',
 
 
 var http = require('http'),
-  	Cam = require('./onvif').Cam;
+	Cam = require('./onvif').Cam;
 
 new Cam({
 	hostname: CAMERA_HOST,
@@ -34,10 +35,10 @@ new Cam({
 		, zoom: 1
 	});
 	
-	this.getStreamUri({protocol:'RTSP'}, function(err, stream) {
+	this.getStreamUri({protocol: 'RTSP'}, function(err, stream) {
 		console.log(stream);
 		
-		http.createServer(function (req, res) {
+		http.createServer(function(req, res) {
 			res.writeHead(200, {'Content-Type': 'text/html'});
 			res.end(
 				'<html><body>' +
